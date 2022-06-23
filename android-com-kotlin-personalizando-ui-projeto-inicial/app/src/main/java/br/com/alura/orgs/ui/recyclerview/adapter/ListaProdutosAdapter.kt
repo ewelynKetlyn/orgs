@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import br.com.alura.orgs.R
 import br.com.alura.orgs.databinding.ProdutoItemBinding
+import br.com.alura.orgs.extensions.tentaCarregarImagem
 import br.com.alura.orgs.model.Produto
 import coil.load
 import java.text.NumberFormat
@@ -42,10 +43,7 @@ class ListaProdutosAdapter(
 
             binding.imageView.visibility = visibilidade
 
-            binding.imageView.load(produto.imagem){
-                fallback(R.drawable.erro)
-                error(R.drawable.erro)
-            }
+            binding.imageView.tentaCarregarImagem(produto.imagem)
         }
 
     }
