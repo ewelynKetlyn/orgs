@@ -38,12 +38,7 @@ class FormularioProdutoActivity : AppCompatActivity() {
 
     private fun configuraBotaoSalvar() {
         val botaoSalvar = binding.activityFormularioProdutoBotaoSalvar
-        val db = Room.databaseBuilder(
-            this,
-            AppDatabase::class.java,
-            "orgs.db"
-        ).allowMainThreadQueries()
-            .build()
+        val db = AppDatabase.instancia(this)
         val produtoDao = db.produtoDao()
 
         botaoSalvar.setOnClickListener {
